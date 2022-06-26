@@ -9,10 +9,10 @@
 /**
  * Database config variables
  */
-define("DB_HOST", "localhost");
-define("DB_USER", "tobiauk53_root");
-define("DB_PASSWORD", "S7IbNRZKOR");
-define("DB_DATABASE", "tobiauk53_hysteria");
+define("DB_HOST", "");
+define("DB_USER", "");
+define("DB_PASSWORD", "");
+define("DB_DATABASE", "");
 
 /*
  * Google API Key
