@@ -1,0 +1,24 @@
+$http({
+            method: "POST",
+            url:'http://192.168.0.16/api/DeviceReg',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {data: "testdata"}
+
+        }).success(function (data, status, headers, config) {
+            $scope.showResponse = true;
+            $scope.status = status;
+            $scope.config = config;
+
+            console.log(config);
+            $scope.Response =  data.output;
+        }).
+            error(function (data, status, headers, config) {
+                $scope.showResponse = true;
+                $scope.data = data;
+                $scope.status = status;
+                $scope.headers = headers;
+                $scope.config = config;
+                console.log(config);
+            });

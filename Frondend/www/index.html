@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+      <meta http-equiv="Content-Security-Policy" content="default-src *;
+ style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'
+ 'unsafe-eval'">
+      <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ionicons.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/emoji.min.css">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+      <script src="https://code.angularjs.org/1.2.0-rc.2/angular-sanitize.min.js"></script>
+      <script src="js/emoji.min.js"></script>
+
+    <!-- ng cordova js -->
+
+      <!-- console plugin removed -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+
+      <script src="cordova.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+
+  <body class="platform-ios platform-cordova platform-webview" ng-app="app" ng-controller="AppCtrl">
+
+    <ion-pane>
+        <ion-header-bar class="bar bar-header bar-calm">
+            <h1 class="title">Presentatie Over Pesten</h1>
+        </ion-header-bar>
+
+
+        <ion-content padding="true" has-header="true">
+            <div ng-if="!showResponse">
+                <span>Hoi, welkom bij onze presenatie over pesten.</span>
+
+                <div class="list" ng-if="!input_item">
+                    <hr>
+                    <span>Vul je naam hieronder in de textblok in, bij voorbaad dank!</span>
+
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" placeholder="Naam!" name="params.naam" ng-model="params.naam">
+                        </label>
+                        <button class="button button-small" ng-click="initl();">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+                <div class="item item-image">
+                    <img src="img/pesten-bg.jpg">
+                </div>
+            </div>
+            <div ng-if="showResponse">
+            <ion-list>
+                <ion-item ng-repeat="notification in notifications track by $index" type="item-content" ng-bind-html="notification | emoji" >
+                    {{notification}}
+                </ion-item>
+            </ion-list>
+                </div>
+        </ion-content>
+        <div class="bar bar-footer  bar-calm">
+            <button class="button button-clear" ng-click="showPopup();"><i class="ion-information-circled"></i> </button>
+        </div>
+
+    </ion-pane>
+
+  </body>
+</html>
